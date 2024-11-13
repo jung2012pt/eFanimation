@@ -91,42 +91,42 @@ const CoursesPage = () => {
 export default CoursesPage;
 
 // CSS styles for the page (assuming you're using a CSS-in-JS approach or importing CSS)
-const styles = `
-  .courses-page {
-    padding: 20px;
-  }
-  .course-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  .course-card {
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 300px;
-  }
-  .course-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .badge {
-    font-size: 0.8em;
-    padding: 4px 8px;
-    border-radius: 4px;
-    color: #fff;
-  }
-  .badge.pro {
-    background-color: #ff9800;
-  }
-  .badge.new {
-    background-color: #4caf50;
-  }
-  .badge.updated {
-    background-color: #2196f3;
-  }
-`;
+// const styles = `
+//   .courses-page {
+//     padding: 20px;
+//   }
+//   .course-list {
+//     display: flex;
+//     flex-wrap: wrap;
+//     gap: 20px;
+//   }
+//   .course-card {
+//     border: 1px solid #ccc;
+//     padding: 20px;
+//     border-radius: 8px;
+//     max-width: 300px;
+//   }
+//   .course-header {
+//     display: flex;
+//     align-items: center;
+//     gap: 10px;
+//   }
+//   .badge {
+//     font-size: 0.8em;
+//     padding: 4px 8px;
+//     border-radius: 4px;
+//     color: #fff;
+//   }
+//   .badge.pro {
+//     background-color: #ff9800;
+//   }
+//   .badge.new {
+//     background-color: #4caf50;
+//   }
+//   .badge.updated {
+//     background-color: #2196f3;
+//   }
+// `;
 
 // Assuming styles will be inserted appropriately (e.g., via styled-components or a CSS module) into the JSX
 ``

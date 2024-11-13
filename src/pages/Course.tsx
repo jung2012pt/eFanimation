@@ -1,6 +1,6 @@
 // src/pages/Contact.tsx
 import React from 'react';
-import Sidebar from '../components/Sidebar';
+// import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 
 const Course: React.FC = () => {

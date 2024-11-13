@@ -2,10 +2,10 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 // import { Route, Router, Routes } from 'react-router-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import About from './About';
-import Contact from './Course';
+// import About from './About';
+// import Contact from './Course';
 
 const Home: React.FC = () => {
     return (
