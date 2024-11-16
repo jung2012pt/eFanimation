@@ -1,0 +1,13 @@
+.groupCard{
+    display: flex;
+    justify-content: center; /* Centers the cards horizontally */
+  align-items: center;
+    flex-wrap: wrap;      /* Allows the items to wrap to the next line */
+  gap: 16px;            /* Spacing between cards */
+   /* justify-content: space-between;  */
+   color: #b0b0b0;
+}
+h1{
+   color: #e0e0e0;
+
+}

@@ -1,5 +1,6 @@
 body{
-  background-color: aqua;
+  background-color: #121212        ;
+  color: #e0e0e0     ;
 }
 #root {
   max-width: 1280px;
