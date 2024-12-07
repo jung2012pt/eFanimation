@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Card from '../components/card';
 import './Course.css';
-import KVFetchComponent from './D1fetch';
+// import KVFetchComponent from './D1fetch';
 
 const Course: React.FC = () => {
    
@@ -14,7 +14,7 @@ const Course: React.FC = () => {
             <Navbar></Navbar>
             <h1>Course Page</h1>
             <p>Get in touch with us through this page.</p>
-            <KVFetchComponent></KVFetchComponent>
+            {/* <KVFetchComponent></KVFetchComponent> */}
             <div className='groupCard'>
                 <Card title="Advanced JavaScript" size="large" />
                 <Card title="The Full Stack Developer Path" size="small" />
