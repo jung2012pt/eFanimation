@@ -1,35 +1,51 @@
-// src/pages/Contact.tsx
 import React, { useEffect, useState } from 'react';
-// import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import Card from '../components/card';
 import './Course.css';
-import KVFetchComponent from './D1fetch';
+import axios from 'axios';
 
 const Course: React.FC = () => {
-   
-    return (
-        <div>
-            {/* <div style={{ marginLeft: '25vw', padding: '20px' }}> */}
-            <Navbar></Navbar>
-            <h1>Course Page</h1>
-            <p>Get in touch with us through this page.</p>
-            <KVFetchComponent></KVFetchComponent>
-            <div className='groupCard'>
-                <Card title="Advanced JavaScript" size="large" />
-                <Card title="The Full Stack Developer Path" size="small" />
-                <Card title="The Full Stack Developer Path" size="small" />
-                <Card title="React Developer Journey" size="medium" />
-                <Card title="React Developer Journey" size="small" />
-                <Card title="React Developer Journey" size="small" />
-                <Card title="React Developer Journey" size="small" />
-                <Card title="React Developer Journey" size="small" />
-                <Card title="The Full Stack Developer Path" size="large" />
-                <Card title="React Developer Journey" size="small" />
+  const [courses, setCourses] = useState<any[]>([]); // To store fetched courses
+  const [loading, setLoading] = useState<boolean>(true); // For loading state
 
-            </div>
+  // Fetch courses from backend API
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/courses');
+        setCourses(response.data); // Store the fetched data in state
+        setLoading(false); // Set loading to false when data is fetched
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
+  return (
+    <div>
+      <Navbar />
+      <h1>Course Page</h1>
+      <p>Explore our courses below.</p>
+
+      {/* Show loading spinner or message */}
+      {loading ? (
+        <p>Loading courses...</p>
+      ) : (
+        <div className='groupCard'>
+          {courses.length > 0 ? (
+            courses.map((course) => (
+              <Card key={course._id} title={course.name} size="medium" />
+            ))
+          ) : (
+            <p>No courses found.</p>
+          )}
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
 export default Course;
