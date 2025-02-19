@@ -29,7 +29,7 @@ const Lesson: React.FC = () => {
         setCourse(response.data); // Store the fetched data in state
         setLoading(false); // Set loading to false when data is fetched
         console.log(course);
-        
+        console.log(loading);
       } catch (error) {
         console.error("Error fetching courses:", error);
         setLoading(false);
