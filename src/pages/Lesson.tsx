@@ -23,7 +23,7 @@ const Lesson: React.FC = () => {
     const { id } = useParams(); // Get ID from URL
     const fetchCourses = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/courses/'+id);
+        const response = await axios.get('https://efanbackend.pages.dev/courses/'+id);
         console.log('response.data',response.data);
         
         setCourse(response.data); // Store the fetched data in state
@@ -37,7 +37,7 @@ const Lesson: React.FC = () => {
     };
     const fetchLessons = async () => {
         try {
-          const response = await axios.get('http://localhost:3000/lessons/course/'+id);
+          const response = await axios.get('https://efanbackend.pages.dev/lessons/course/'+id);
           console.log('response.data',response.data);
           
           setLessons(response.data); // Store the fetched data in state
