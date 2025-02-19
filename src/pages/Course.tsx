@@ -37,7 +37,8 @@ const Course: React.FC = () => {
         <div className='groupCard'>
           {courses.length > 0 ? (
             courses.map((course) => (
-              <Card key={course._id} title={course.name} size="medium" />
+              <Card key={course._id} description={course.description} title={course.name} lessonAmount={course.lessonAmount} id={course._id} size="medium" />
+              
             ))
           ) : (
             <p>No courses found.</p>

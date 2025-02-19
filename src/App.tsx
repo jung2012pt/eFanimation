@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Course from './pages/Course';
 import './App.css'; // Create a CSS file for styling
+import Lesson from './pages/Lesson';
+import Sublesson from './pages/Sublesson';
 
 const App: React.FC = () => {
     return (
@@ -18,6 +20,8 @@ const App: React.FC = () => {
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/course" element={<Course />} />
+                        <Route path="/lesson/:id" element={<Lesson />} />
+                        <Route path="/sublesson/:id" element={<Sublesson />} />
                     </Routes>
                 </div>
 

@@ -1,7 +1,7 @@
 // src/pages/Home.tsx
 import React from 'react';
 import Navbar from '../components/Navbar';
-import PutValueComponent from './put';
+
 // import { Route, Router, Routes } from 'react-router-dom';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ const Home: React.FC = () => {
         <div>
             <Navbar></Navbar>
             Homehome
-            <PutValueComponent></PutValueComponent>
+           
             {/* <Router>
 
                 <div style={{ marginLeft: '25vw', padding: '20px' }}>
