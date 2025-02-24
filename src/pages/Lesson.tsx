@@ -38,7 +38,7 @@ const Lesson: React.FC = () => {
     const fetchLessons = async () => {
         try {
           const response = await axios.get('https://efanbackend.fly.dev/lessons/course/'+id);
-          console.log('response.data',response.data);
+              console.log('response.data',response.data);
           
           setLessons(response.data); // Store the fetched data in state
           setLoading(false); // Set loading to false when data is fetched

@@ -1,0 +1,9 @@
+/* CodeBox.css */
+
+  
+  pre {
+    background: #EEE;
+    padding-top: 1em;
+    border-left: 5px solid #69c773;
+    color:#333;
+  }
