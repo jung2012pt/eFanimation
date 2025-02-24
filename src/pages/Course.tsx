@@ -12,7 +12,7 @@ const Course: React.FC = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get('https://efanbackend.pages.dev/courses');
+        const response = await axios.get('https://efanbackend.fly.dev/courses');
         setCourses(response.data); // Store the fetched data in state
         setLoading(false); // Set loading to false when data is fetched
       } catch (error) {
