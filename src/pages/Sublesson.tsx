@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Transition from "../lessons/CSS/Transition";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 const Sublesson: React.FC = () => {
@@ -15,7 +15,7 @@ const Sublesson: React.FC = () => {
         // "http://localhost:3000/sublessons/lesson/" + id
       );
       console.log("response.data", response.data);
-
+      console.log(loading);
       setSublessons(response.data); // Store the fetched data in state
       setLoading(false); // Set loading to false when data is fetched
       // console.log(course);
