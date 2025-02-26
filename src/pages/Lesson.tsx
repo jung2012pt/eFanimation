@@ -53,7 +53,6 @@ const Lesson: React.FC = () => {
     
         fetchCourses();
         fetchLessons();
-        console.log(course);
         
       }, []);
         // ✅ Log course after state updates

@@ -1,7 +1,7 @@
 import React from "react";
 import "../../components/codeBox.css";
 
-const Test: React.FC = () => {
+const Transition: React.FC = () => {
   return (
     <div>
       <h1>Using CSS transitions</h1>
@@ -262,4 +262,4 @@ el.addEventListener("transitionstart", signalStart, true);`}
   );
 };
 
-export default Test;
+export default Transition;
