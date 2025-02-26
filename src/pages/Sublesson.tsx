@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Transition from "../lessons/CSS/Transition";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 const Sublesson: React.FC = () => {
