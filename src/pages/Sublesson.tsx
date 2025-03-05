@@ -12,8 +12,8 @@ const Sublesson: React.FC = () => {
   const fetchSublessons = async () => {
     try {
       const response = await axios.get(
-        // "https://efanbackend.fly.dev/sublessons/lesson/" + id
-        "http://localhost:3000/sublessons/lesson/" + id
+        "https://efanbackend.fly.dev/sublessons/lesson/" + id
+        // "http://localhost:3000/sublessons/lesson/" + id
       );
       console.log("response.data", response.data);
       console.log(loading);
