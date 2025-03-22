@@ -30,3 +30,10 @@
     background-color: #04AA6D;
     color: white;
   }
+  .navtab{
+padding-right: 4rem;
+  }
+  .navmenu{
+    display: flex;
+    /* padding-right: 2rem; */
+  }

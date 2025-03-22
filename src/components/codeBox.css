@@ -4,6 +4,11 @@
   pre {
     background: #EEE;
     padding-top: 1em;
-    border-left: 5px solid #69c773;
+    border-left: 0.5vw solid #1489E8;
     color:#333;
+    font-size: 1rem;
+    text-align: left;
+    padding-left: 1.5%;
+    width: 50%;
+    margin-left: 15%;
   }

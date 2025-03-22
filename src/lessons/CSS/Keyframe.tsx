@@ -1,17 +1,17 @@
 import React from "react";
 import "../../components/codeBox.css";
-
+import "./sublessondefault.css";
 const Keyframe: React.FC = () => {
   return (
     <div>
-      <h1>@keyframes</h1>
-      <p>
+      <h1 className="topic">@keyframes</h1>
+      <p className="content">
         The @keyframes CSS at-rule controls the intermediate steps in a CSS
         animation sequence by defining styles for keyframes (or waypoints) along
         the animation sequence. This gives more control over the intermediate
         steps of the animation sequence than transitions.
       </p>
-      <h1>Syntax</h1>
+      <h1 className="header">Syntax</h1>
       <pre>
         <code>
           css
@@ -29,8 +29,8 @@ const Keyframe: React.FC = () => {
         </code>
       </pre>
 
-      <h1>Values</h1>
-      <p>
+      <h1 className="header">Values</h1>
+      <p className="content">
         {`
         <custom-ident>`}
         A name identifying the keyframe list. This must match the identifier
@@ -43,8 +43,8 @@ const Keyframe: React.FC = () => {
         occur. See CSS scroll-driven animations for more information on the
         kinds of animations that use named timeline ranges.
       </p>
-      <h1>Description</h1>
-      <p>
+      <h1 className="header">Description</h1>
+      <p className="content">
         To use keyframes, create a @keyframes rule with a name that is then used
         by the animation-name property to match an animation to its keyframe
         declaration. Each @keyframes rule contains a style list of keyframe
@@ -55,8 +55,8 @@ const Keyframe: React.FC = () => {
         at-rule with the CSS object model interface CSSKeyframesRule.
       </p>
 
-      <h1>Valid keyframe lists</h1>
-      <p>
+      <h1 className="header">Valid keyframe lists</h1>
+      <p className="content">
         If a keyframe rule doesn't specify the start or end states of the
         animation (that is, 0%/from and 100%/to), browsers will use the
         element's existing styles for the start/end states. This can be used to
@@ -64,8 +64,8 @@ const Keyframe: React.FC = () => {
         can't be animated in keyframe rules are ignored, but supported
         properties will still be animated.
       </p>
-      <h1>Resolving duplicates</h1>
-      <p>
+      <h1 className="header">Resolving duplicates</h1>
+      <p className="content">
         If multiple keyframe sets exist for a given name, the last one
         encountered by the parser is used. @keyframes rules don't cascade, so
         animations never derive keyframes from more than one rule set. If a
@@ -74,8 +74,8 @@ const Keyframe: React.FC = () => {
         cascading within a @keyframes rule if multiple keyframes specify the
         same percentage values.
       </p>
-      <h1>When properties are left out of some keyframes</h1>
-      <p>
+      <h1 className="header">When properties are left out of some keyframes</h1>
+      <p className="content">
         Properties that aren't specified in every keyframe are interpolated if
         possible — properties that can't be interpolated are dropped from the
         animation. For example:
@@ -104,12 +104,12 @@ Copy to Clipboard
 }`}
         </code>
       </pre>
-      <p>
+      <p className="content">
         Here, the top property animates using the 0%, 30%, and 100% keyframes,
         and left animates using the 0%, 68%, 72% and 100% keyframes.
       </p>
-      <h1>When a keyframe is defined multiple times</h1>
-      <p>
+      <h1 className="header">When a keyframe is defined multiple times</h1>
+      <p className="content">
         If a keyframe is defined multiple times but not all affected properties
         are in each keyframe, all values specified in these keyframes are
         considered. For example:
@@ -136,7 +136,7 @@ Copy to Clipboard
 }`}
         </code>
       </pre>
-      <p>
+      <p className="content">
         In this example, at the 50% keyframe, the values used are top: 10px and
         left: 20px. Cascading keyframes are supported starting in Firefox 14.
         !important in a keyframe Declarations in a keyframe qualified with
@@ -171,7 +171,7 @@ Copy to Clipboard
 }`}
         </code>
       </pre>
-      <h1>Formal syntax</h1>
+      <h1 className="header">Formal syntax</h1>
 
       <pre>
         <code>
@@ -185,7 +185,6 @@ Copy to Clipboard
 `}
         </code>
       </pre>
-     
     </div>
   );
 };

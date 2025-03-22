@@ -1,11 +1,17 @@
-body{
-  background-color: #121212        ;
-  color: #e0e0e0     ;
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  /* transition: background-color 0.5s ease-in-out; */
+  /* max-width: 90%; */
+  padding-right: 2.75rem;
+  padding-left: 2.75rem;
+  padding-top:1.5rem;
+  padding-bottom:1.5rem;
 }
 #root {
   /* max-width: 90%; */
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
 }
 

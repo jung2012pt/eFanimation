@@ -4,8 +4,8 @@ import Card from "../components/card";
 import "./Course.css";
 import axios from "axios";
 const API_URL = import.meta.env.VITE_API_URL;
-const Course: React.FC = () => {
-  const [courses, setCourses] = useState<any[]>([]); // To store fetched courses
+const Quiz: React.FC = () => {
+  const [questionSets, setQuestionSets] = useState<any[]>([]); // To store fetched questionSets
   const [loading, setLoading] = useState<boolean>(true); // For loading state
   // Function to generate random size for a course
   const randomSizeCard = (): "small" | "medium" | "large" => {
@@ -13,20 +13,20 @@ const Course: React.FC = () => {
     const randomIndex = Math.floor(Math.random() * sizeCard.length);
     return sizeCard[randomIndex] as "small" | "medium" | "large"; // Return random size
   };
-  // Fetch courses from backend APIF
+  // Fetch questionSets from backend APIF
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get(`${API_URL}/courses`);
+        const response = await axios.get(`${API_URL}/question-sets`);
         // Add a random sizeCard to each course before setting state
         const updatedCourses = response.data.map((course: any) => ({
           ...course,
           sizeCard: randomSizeCard(), // Add the random sizeCard
         }));
-        setCourses(updatedCourses); // Store the fetched and updated data in state
+        setQuestionSets(updatedCourses); // Store the fetched and updated data in state
         setLoading(false); // Set loading to false when data is fetched
       } catch (error) {
-        console.error("Error fetching courses:", error);
+        console.error("Error fetching questionSets:", error);
         setLoading(false);
       }
     };
@@ -40,16 +40,16 @@ const Course: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <h1>Course Page</h1>
-      <p>Explore our courses below.</p>
+      <h1>Quiz Page</h1>
+      <p>Explore our quizs below.</p>
 
       {/* Show loading spinner or message */}
       {loading ? (
-        <p>Loading courses...</p>
+        <p>Loading quizs...</p>
       ) : (
         <div className="groupCard">
-          {courses.length > 0 ? (
-            courses.map((course) => (
+          {questionSets.length > 0 ? (
+            questionSets.map((course) => (
               <Card
                 key={course._id}
                 description={course.description}
@@ -60,7 +60,7 @@ const Course: React.FC = () => {
               />
             ))
           ) : (
-            <p>No courses found.</p>
+            <p>No quizs found.</p>
           )}
         </div>
       )}
@@ -68,4 +68,4 @@ const Course: React.FC = () => {
   );
 };
 
-export default Course;
+export default Quiz;

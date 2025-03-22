@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Keyframe from "../lessons/CSS/Keyframe";
+const API_URL = import.meta.env.VITE_API_URL;
 const Sublesson: React.FC = () => {
   const { id } = useParams(); // Get ID from URL
   const [loading, setLoading] = useState<boolean>(true); // For loading state
@@ -12,8 +13,8 @@ const Sublesson: React.FC = () => {
   const fetchSublessons = async () => {
     try {
       const response = await axios.get(
-        "https://efanbackend.fly.dev/sublessons/lesson/" + id
-        // "http://localhost:3000/sublessons/lesson/" + id
+        // `${API_URL}/sublessons/lesson/` + id
+        `${API_URL}/sublessons/lesson/` + id
       );
       console.log("response.data", response.data);
       console.log(loading);
@@ -48,20 +49,26 @@ const Sublesson: React.FC = () => {
   useEffect(() => {
     fetchSublessons();
   }, []);
+  useEffect(() => {
+    const existingLink = document.getElementById("lesson-style");
+    if (existingLink) {
+      document.head.removeChild(existingLink);
+    }
+  }, []);
   return (
     <div>
       <Navbar></Navbar>
       {sublessons.length == 0 ? (
-        <p>No sublessons found for this course.</p>
+        <div></div> // <p className="content">No sublessons found for this course.</p>
       ) : (
         <div>
           {/* <h3>{sublessons[0].title}</h3>
-          <p>{sublessons[0].content}</p> */}
+          <p className="content">{sublessons[0].content}</p> */}
           {getComponent()}
         </div>
       )}
 
-      {/* <h1>sublesson</h1> */}
+      {/* <h1 className="header">sublesson</h1> */}
       {/* <Transition></Transition> */}
     </div>
   );

@@ -1,0 +1,28 @@
+.expand-list{
+text-align: left;
+}
+.expand-title{
+
+}
+.expand-description{
+text-align: left;
+padding-left: 10.5%;
+}
+.expand-title {
+  color: white; /* Default text color */
+  font-size: 24px;
+  font-weight: bold;
+  transition: text-shadow 0.3s ease-in-out;
+  text-align: left;
+  margin-left: 9%;
+  display: inline-block; /* <-- key change */
+  width: auto;
+  cursor: pointer;
+  
+}
+
+.expand-title:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+               0 0 20px rgba(255, 255, 255, 0.6), 
+               0 0 30px rgba(255, 255, 255, 0.4);
+}

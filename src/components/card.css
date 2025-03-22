@@ -34,23 +34,23 @@
     flex-direction: column;
     position: relative;
     transition: all 300ms ease;
-    margin: 1%;
-    /* padding: 20px; */
+    margin-bottom: 1.5%;
+    /* padding: 20%; */
   }
   
   .card-small {
     width: 17.5vw;
-    height: 30vh;
+    height: 17vh;
   }
   
   .card-medium {
     width: 25vw;
-    height: 30vh;
+    height: 17vh;
   }
   
   .card-large {
     width: 40vw;
-    height: 30vh;
+    height: 17vh;
   }
   
   .card:hover::before {
