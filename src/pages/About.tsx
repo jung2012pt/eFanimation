@@ -1,7 +1,7 @@
 // src/pages/About.tsx
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
-import "../../public/style1.css"
+// import "../../public/style1.css"
 const About: React.FC = () => {
   useEffect(() => {
     const existingLink = document.getElementById("lesson-style");

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import Card from "../components/card2";
+import Card from "../components/card";
 import "./Course.css";
 import axios from "axios";
+import "../../public/cssquestion.css";
 const API_URL = import.meta.env.VITE_API_URL;
-const Quiz: React.FC = () => {
+const Question: React.FC = () => {
   const [questionSets, setQuestionSets] = useState<any[]>([]); // To store fetched questionSets
   const [loading, setLoading] = useState<boolean>(true); // For loading state
   // Function to generate random size for a course
@@ -38,14 +39,15 @@ const Quiz: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="wrapper">
       <Navbar />
-      <h1>Quiz Page</h1>
-      <p>Explore our quizs below.</p>
+      <h1>Question Page</h1>
+      <hr></hr>
+      <p>Explore our questions below.</p>
 
       {/* Show loading spinner or message */}
       {loading ? (
-        <p>Loading quizs...</p>
+        <p>Loading questions...</p>
       ) : (
         <div className="groupCard">
           {questionSets.length > 0 ? (
@@ -60,7 +62,7 @@ const Quiz: React.FC = () => {
               />
             ))
           ) : (
-            <p>No quizs found.</p>
+            <p>No questions found.</p>
           )}
         </div>
       )}
@@ -68,4 +70,4 @@ const Quiz: React.FC = () => {
   );
 };
 
-export default Quiz;
+export default Question;
