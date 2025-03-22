@@ -62,7 +62,9 @@ const Lesson: React.FC = () => {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     // link.as = "style"; // Make sure the browser treats it as a stylesheet
-    link.href = `../../public/${course?.cssFileName}.css`; // Adjust based on your lesson CSS files
+    link.href = `./${course?.cssFileName}.css`; // Adjust based on your lesson CSS files
+    // link.href = `../../public/${course?.cssFileName}.css`; // Adjust based on your lesson CSS files
+
     link.id = "lesson-style"; // Unique ID for easy removal
     link.onload = () => {
       setLoading(false); // CSS is loaded, stop the loading spinner
