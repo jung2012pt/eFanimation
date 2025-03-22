@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 import "./Lesson.css";
 // import { gsap } from "gsap";
 import "../../public/loading.css";
+import "../../public/css.css";
+
 import ExpandingList from "../components/ExpandingList";
 const API_URL = import.meta.env.VITE_API_URL;
 // import "../lessons/lessonCSS/css.css"; // Import Light Mode CSS
@@ -58,33 +60,33 @@ const Lesson: React.FC = () => {
       // setLoading(false);
     }
   }; // Load lesson-specific styles
-  const loadLessonStyles = () => {
-    //  setId(lessonId == "1" ? "2" : "1");
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    // link.as = "style"; // Make sure the browser treats it as a stylesheet
-    // link.href = `./${course?.cssFileName}.css`; // Adjust based on your lesson CSS files
-    link.href = `./../../public/${course?.cssFileName}.css`; // Adjust based on your lesson CSS files
+  // const loadLessonStyles = () => {
+  //   //  setId(lessonId == "1" ? "2" : "1");
+  //   const link = document.createElement("link");
+  //   link.rel = "stylesheet";
+  //   // link.as = "style"; // Make sure the browser treats it as a stylesheet
+  //   // link.href = `./${course?.cssFileName}.css`; // Adjust based on your lesson CSS files
+  //   link.href = `./../../public/${course?.cssFileName}.css`; // Adjust based on your lesson CSS files
 
-    link.id = "lesson-style"; // Unique ID for easy removal
-    link.onload = () => {
-      setLoading(false); // CSS is loaded, stop the loading spinner
-      document.body.classList.add("loaded");
-    };
-    console.log(link.href);
-    document.head.appendChild(link);
-    //    link.href = `../lessons/lessonCSS/${lessonId}.css`; // Adjust based on your lesson CSS files
-    // console.log("lessonId" + lessonId);
+  //   link.id = "lesson-style"; // Unique ID for easy removal
+  //   link.onload = () => {
+  //     setLoading(false); // CSS is loaded, stop the loading spinner
+  //     document.body.classList.add("loaded");
+  //   };
+  //   console.log(link.href);
+  //   document.head.appendChild(link);
+  //   //    link.href = `../lessons/lessonCSS/${lessonId}.css`; // Adjust based on your lesson CSS files
+  //   // console.log("lessonId" + lessonId);
 
-    // Clean up the previous CSS file when switching lessons
-    return () => {
-      // Remove previous lesson CSS when switching pages
-      const existingLink = document.getElementById("lesson-style");
-      if (existingLink) {
-        document.head.removeChild(existingLink);
-      }
-    };
-  };
+  //   // Clean up the previous CSS file when switching lessons
+  //   return () => {
+  //     // Remove previous lesson CSS when switching pages
+  //     const existingLink = document.getElementById("lesson-style");
+  //     if (existingLink) {
+  //       document.head.removeChild(existingLink);
+  //     }
+  //   };
+  // };
   // const existingLink = document.getElementById("lesson-style");
   // if (existingLink) {
   //   existingLink.remove();
@@ -111,7 +113,7 @@ const Lesson: React.FC = () => {
   useEffect(() => {
     // console.log("Updated course:", course);
     if (course) {
-      loadLessonStyles();
+      // loadLessonStyles();
       console.log("Applied lesson CSS:", course?.cssFileName);
     }
   }, [course]); // Runs whenever `course` changes
@@ -119,7 +121,7 @@ const Lesson: React.FC = () => {
   // const location = useLocation();
 
   return (
-    <div className="lesson-page">
+    <div className={`lesson-page  ${course?.cssFileName || ""}`}>
       {loading && <div className="loading-spinner">Loading...</div>}{" "}
       {/* Show spinner while loading */}
       {!loading && (
@@ -143,6 +145,7 @@ const Lesson: React.FC = () => {
                     title={lesson.title}
                     description={lesson.content}
                     id={lesson._id}
+                    key={lesson._id} // Unique key for each list item
                   ></ExpandingList>
                 ))
               )}

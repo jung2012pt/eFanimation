@@ -1,33 +1,27 @@
-
-.header{
-font-size: 1.5rem;
-text-align: left;
-margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 2%;
-    /* margin-bottom: 0.5%; */
-}
-/* body {
-  background-color: #663399;
-  color: #121212;
-   transition: background-color 0.5s ease-in-out;
-   visibility: hidden;
-} */
-h2{
-    color: rgb(255, 2, 179);
+.css-wrapper .header {
+  font-size: 1.5rem;
+  text-align: left;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+  /* margin-bottom: 0.5%; */
 }
 
-body.loaded {
+.css-wrapper h2 {
+  color: rgb(255, 2, 179);
+}
+
+.css-wrapper body.loaded {
   visibility: visible;
   transition: visibility 0.3s ease-in-out;
 }
-.container-lesson{
-    margin-right: 5rem;
-    margin-left: 5rem;
+
+.css-wrapper .container-lesson {
+  margin-right: 5rem;
+  margin-left: 5rem;
 }
-hr{
-     /* color: red; Changes the line color */
-  /* background-color: red; Ensures color is applied */
-   border: 0.01rem solid #663399;
-   
-}
+
+.css-wrapper hr {
+  border: 0.01rem solid #663399;
+} 
+
