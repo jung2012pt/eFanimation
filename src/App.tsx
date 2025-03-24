@@ -25,7 +25,7 @@ const App: React.FC = () => {
             <Route path="/sublesson/:id" element={<Sublesson />} />
 
             <Route path="/quiz" element={<Quiz />} />
-            <Route path="/question/:id" element={<Question />} />
+            <Route path="/question/:setId" element={<Question />} />
           </Routes>
         </div>
       </Router>

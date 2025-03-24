@@ -1,70 +1,85 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import Card from "../components/card";
 import "./Course.css";
 import axios from "axios";
 import "../../public/cssquestion.css";
+import { useParams } from "react-router-dom";
+
 const API_URL = import.meta.env.VITE_API_URL;
+
 const Question: React.FC = () => {
-  const [questionSets, setQuestionSets] = useState<any[]>([]); // To store fetched questionSets
-  const [loading, setLoading] = useState<boolean>(true); // For loading state
-  // Function to generate random size for a course
-  const randomSizeCard = (): "small" | "medium" | "large" => {
-    const sizeCard = ["small", "medium", "large"];
-    const randomIndex = Math.floor(Math.random() * sizeCard.length);
-    return sizeCard[randomIndex] as "small" | "medium" | "large"; // Return random size
-  };
-  // Fetch questionSets from backend APIF
+  const [questions, setQuestions] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const { setId } = useParams();
+
   useEffect(() => {
-    const fetchCourses = async () => {
+    const fetchQuestion = async () => {
       try {
-        const response = await axios.get(`${API_URL}/question-sets`);
-        // Add a random sizeCard to each course before setting state
-        const updatedCourses = response.data.map((course: any) => ({
-          ...course,
-          sizeCard: randomSizeCard(), // Add the random sizeCard
-        }));
-        setQuestionSets(updatedCourses); // Store the fetched and updated data in state
-        setLoading(false); // Set loading to false when data is fetched
+        const response = await axios.get(`${API_URL}/questions/set/${setId}`);
+        setQuestions(response.data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching questionSets:", error);
         setLoading(false);
       }
     };
-    const existingLink = document.getElementById("lesson-style");
-    if (existingLink) {
-      existingLink.remove();
+
+    fetchQuestion();
+  }, [setId]);
+
+  const handleNext = () => {
+    if (currentIndex < questions.length - 1) {
+      setCurrentIndex((prev) => prev + 1);
     }
-    fetchCourses();
-  }, []);
+  };
+
+  const handlePrevious = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+    }
+  };
 
   return (
     <div className="wrapper">
       <Navbar />
-      <h1>Question Page</h1>
-      <hr></hr>
-      <p>Explore our questions below.</p>
 
-      {/* Show loading spinner or message */}
       {loading ? (
         <p>Loading questions...</p>
       ) : (
-        <div className="groupCard">
-          {questionSets.length > 0 ? (
-            questionSets.map((course) => (
-              <Card
-                key={course._id}
-                description={course.description}
-                title={course.name}
-                lessonAmount={course.lessonAmount}
-                id={course._id}
-                size={course.sizeCard}
-              />
-            ))
-          ) : (
-            <p>No questions found.</p>
-          )}
-        </div>
+        <>
+          {" "}
+          <div className="question-title">
+            {questions[currentIndex]?.question_title}
+          </div>
+          <hr></hr>
+          <div className="question-number">
+            <h2>
+              {currentIndex + 1}.) Question {currentIndex + 1} of{" "}
+              {questions.length}
+            </h2>
+            <div className="choice">
+              {questions[currentIndex].choices?.map(
+                (choice: any, index: number) => (
+                  <div key={index} className="choice-item">
+                    {choice.choice_text}
+                  </div>
+                )
+              )}
+            </div>
+            <div className="navigation-buttons">
+              <button onClick={handlePrevious} disabled={currentIndex === 0}>
+                Previous
+              </button>
+              <button
+                onClick={handleNext}
+                disabled={currentIndex === questions.length - 1}
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );
