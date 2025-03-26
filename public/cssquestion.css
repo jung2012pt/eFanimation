@@ -27,3 +27,38 @@
   font-size: 1rem;
   cursor: pointer;
 }
+.question-text{
+    text-align: left;
+    margin-left: 4%;
+}
+.choice{
+    text-align: left;
+    margin-left: 24%;
+}
+.question-textPart{
+    text-align: left;
+  margin-left: 15%;
+  margin-top: 0%;
+  margin-bottom: 3%;
+}
+.default-text {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.choice-inline {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.choice-inline input {
+  margin: 0 5px;
+  width: auto; /* Adjust width as needed */
+}
+
+.submit-button {
+  margin-left: 10px;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
