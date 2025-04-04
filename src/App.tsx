@@ -10,9 +10,11 @@ import Sublesson from "./pages/Sublesson";
 
 import Quiz from "./pages/Quiz";
 import Question from "./pages/Question";
+import GradientTopography from "./lessons/SVG/GradientTopography";
 
 const App: React.FC = () => {
   return (
+    // <GradientTopography />
     <div>
       {/* <Home></Home> */}
       <Router>
@@ -30,6 +32,7 @@ const App: React.FC = () => {
         </div>
       </Router>
     </div>
+
     // <Router>
     //     <Sidebar />
     //     <Navbar />

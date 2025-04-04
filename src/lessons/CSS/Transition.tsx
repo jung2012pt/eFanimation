@@ -1,7 +1,9 @@
 import React from "react";
 import "../../components/codeBox.css";
-import "./sublessondefault.css";
+import "../sublessondefault.css";
 const Transition: React.FC = () => {
+
+
   return (
     <div>
       <h1 className="topic">Using CSS transitions</h1>

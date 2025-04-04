@@ -172,6 +172,46 @@ const Question: React.FC = () => {
                       );
                     }
                   )}
+                  <iframe
+                    // height="300"
+                    style={{
+                      width: "50%",
+                      height: "50vh",
+                      border: "none",
+                      overflow: "hidden",
+                    }}
+                    title="Smooth as Butter Working Example_OutSystems Experts"
+                    src="https://codepen.io/jung2012pt/embed/wBvNpyJ?default-tab=html%2Cresult"
+                    loading="lazy"
+                    allowFullScreen
+                  >
+                    See the Pen{" "}
+                    <a href="https://codepen.io/jung2012pt/pen/wBvNpyJ">
+                      Smooth as Butter Working Example_OutSystems Experts
+                    </a>{" "}
+                    by jung2012pt (
+                    <a href="https://codepen.io/jung2012pt">@jung2012pt</a>) on{" "}
+                    <a href="https://codepen.io">CodePen</a>.
+                  </iframe>
+                  {/* <iframe
+                    height="300"
+                    style="width: 100%;"
+                    scrolling="no"
+                    title="Smooth as Butter Working test"
+                    src="https://codepen.io/jung2012pt/embed/wBvNpyJ?default-tab=html%2Cresult"
+                    frameborder="no"
+                    loading="lazy"
+                    allowtransparency="true"
+                    allowfullscreen="true"
+                  >
+                    See the Pen{" "}
+                    <a href="https://codepen.io/jung2012pt/pen/wBvNpyJ">
+                      Smooth as Butter Working test
+                    </a>{" "}
+                    by jung2012pt (
+                    <a href="https://codepen.io/jung2012pt">@jung2012pt</a>) on{" "}
+                    <a href="https://codepen.io">CodePen</a>.
+                  </iframe> */}
                   <button className="submit-button">Submit</button>
                 </div>
                 {/* End of dynamic sentence */}

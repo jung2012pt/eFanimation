@@ -1,6 +1,6 @@
 import React from "react";
 import "../../components/codeBox.css";
-import "./sublessondefault.css";
+import "../sublessondefault.css";
 const Keyframe: React.FC = () => {
   return (
     <div>

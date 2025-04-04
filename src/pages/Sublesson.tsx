@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Keyframe from "../lessons/CSS/Keyframe";
+import Smooth from "../lessons/CSS/Smooth-animation";
 const API_URL = import.meta.env.VITE_API_URL;
 const Sublesson: React.FC = () => {
   const { id } = useParams(); // Get ID from URL
@@ -43,6 +44,10 @@ const Sublesson: React.FC = () => {
       //   i--;
       // }
       return <Keyframe></Keyframe>;
+    }
+    if ("Smooth" == sublessons[0].reactComponent) {
+      console.log("Smooth");
+      return <Smooth></Smooth>;
     }
     return <div>hello</div>;
   }
