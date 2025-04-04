@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import anime from "animejs";
-import charming from "charming";
+// import charming from "charming";
 import "../styles/base.css";
 
 const animejs = () => {

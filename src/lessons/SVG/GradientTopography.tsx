@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import Menu from "./Menu";
 // import anime from "animejs";
 // import charming from "charming";

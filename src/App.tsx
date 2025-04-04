@@ -10,7 +10,7 @@ import Sublesson from "./pages/Sublesson";
 
 import Quiz from "./pages/Quiz";
 import Question from "./pages/Question";
-import GradientTopography from "./lessons/SVG/GradientTopography";
+// import GradientTopography from "./lessons/SVG/GradientTopography";
 
 const App: React.FC = () => {
   return (
