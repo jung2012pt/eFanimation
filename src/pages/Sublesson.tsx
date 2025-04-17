@@ -6,6 +6,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Keyframe from "../lessons/CSS/Keyframe";
 import Smooth from "../lessons/CSS/Smooth-animation";
+import Animejs from "../lessons/SVG/anime.js";
+import GsapSVG from "../lessons/SVG/gsapSVG.js";
+import Compare from "../lessons/SVG/compareing.js";
 const API_URL = import.meta.env.VITE_API_URL;
 const Sublesson: React.FC = () => {
   const { id } = useParams(); // Get ID from URL
@@ -48,6 +51,18 @@ const Sublesson: React.FC = () => {
     if ("Smooth" == sublessons[0].reactComponent) {
       console.log("Smooth");
       return <Smooth></Smooth>;
+    }
+    if ("Animejs" == sublessons[0].reactComponent) {
+      console.log("Anime");
+      return <Animejs></Animejs>;
+    }
+if ("gsapSVG" == sublessons[0].reactComponent) {
+  console.log("gsapSVG");
+  return <GsapSVG></GsapSVG>;
+}
+    if ("compare" == sublessons[0].reactComponent) {
+      console.log("compare");
+      return <Compare></Compare>;
     }
     return <div>hello</div>;
   }

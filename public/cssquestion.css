@@ -1,12 +1,11 @@
-.wrapper hr{
-    border: 0.01rem solid #663399;
+.wrapper hr {
+  border: 0.01rem solid #663399;
 }
 .question-number {
-    text-align: left;
+  text-align: left;
   margin-left: 4%;
   /* background: #f5f5f5; */
   /* border-radius: 10px; */
-
 }
 
 .question-title {
@@ -27,16 +26,16 @@
   font-size: 1rem;
   cursor: pointer;
 }
-.question-text{
-    text-align: left;
-    margin-left: 4%;
+.question-text {
+  text-align: left;
+  margin-left: 4%;
 }
-.choice{
-    text-align: left;
-    margin-left: 24%;
+.choice {
+  text-align: left;
+  margin-left: 24%;
 }
-.question-textPart{
-    text-align: left;
+.question-textPart {
+  text-align: left;
   margin-left: 15%;
   margin-top: 0%;
   margin-bottom: 3%;
@@ -58,7 +57,12 @@
 }
 
 .submit-button {
-  margin-left: 10px;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  padding-left: 40%;
+}
+.enter-name {
+  padding-top: 15%;
+  margin-bottom: 2.5%;
+}
+.enter-studentId {
+  margin-bottom: 2.5%;
 }

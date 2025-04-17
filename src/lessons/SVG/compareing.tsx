@@ -1,7 +1,7 @@
 import React from "react";
 import "../../components/codeBox.css";
 import "../sublessondefault.css";
-const Animejs: React.FC = () => {
+const Compare: React.FC = () => {
   return (
     <div>
       <h1 className="topic">Anime.js SVG</h1>
@@ -23,6 +23,18 @@ const Animejs: React.FC = () => {
         (opt) A Number between 0 and 1 Returns An Array containing the shape's
         starting and final String values
       </p>
+      <iframe
+        style={{
+          width: "50%",
+          height: "50vh",
+          border: "none",
+          overflow: "hidden",
+        }}
+        title="Smooth as Butter Working Example_OutSystems Experts"
+        src="https://stackblitz.com/edit/stackblitz-starters-6r5aoijx?embed=1&file=index.html&hideExplorer=1"
+        loading="lazy"
+        allowFullScreen
+      ></iframe>
       <pre>
         <code>
           {`import { animate, svg, utils } from 'animejs';
@@ -133,9 +145,8 @@ animate(svg.createDrawable('path'), {
 });`}
         </code>
       </pre>
-      
     </div>
   );
 };
 
-export default Animejs;
+export default Compare;
