@@ -1,5 +1,5 @@
 // components/FlairIcons.tsx
-import React from "react";
+// import React from "react";
 
 export const Lightning = () => (
   <svg width="1em" height="1em" viewBox="0 0 64 64" fill="#00ccff">
