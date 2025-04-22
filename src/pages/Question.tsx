@@ -56,28 +56,39 @@ const Question: React.FC = () => {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes",
-      }).then((result) => {
+      }).then(async (result) => {
         if (result.isConfirmed) {
-          Swal.fire({
-            title: "your answer is saved!",
-            // text: "Your file has been deleted.",
-            icon: "success",
-          });
+          const payload = {
+            name: name, // example values
+            student_id: studentId,
+            set_id: setId,
+            answers: answers, // example array of selected answer IDs
+            timestamp: Date.now(),
+          };
+
+          const response = await axios.post(
+            `${API_URL}/user-answer-sets/summit`,
+            payload
+          );
+          console.log("Response:", response.data);
+          if (response.status == 201) {
+            if (response.data.status == "success") {
+              Swal.fire({
+                title: "your answer is saved!",
+                // text: "Your file has been deleted.",
+                icon: "success",
+              });
+              console.log("success");
+            }
+          } else {
+            Swal.fire({
+              title: "fail to saved!",
+              // text: "Your file has been deleted.",
+              icon: "error",
+            });
+          }
         }
       });
-      // const payload = {
-      //   name: name, // example values
-      //   student_id: studentId,
-      //   set_id: setId,
-      //   answers: answers, // example array of selected answer IDs
-      //   timestamp: Date.now(),
-      // };
-
-      // const response = await axios.post(
-      //   `${API_URL}/user-answer-sets/summit`,
-      //   payload
-      // );
-      // console.log("Response:", response.data);
     } catch (error) {
       console.error("Error posting to questions endpoint:", error);
     }

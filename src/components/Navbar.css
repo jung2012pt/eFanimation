@@ -1,3 +1,6 @@
+/* body{
+overflow: hidden;
+} */
 .navbar {
     background-color: transparent;
     overflow: hidden;
@@ -7,6 +10,7 @@
     display: flex;
     justify-content: flex-end; /* Aligns items to the right */
     justify-content: space-between;
+    height: 3rem;
   }
   
   /* Style the links inside the navigation bar */
@@ -21,13 +25,13 @@
   
   /* Change the color of links on hover */
   .navbar a:hover {
-    background-color: #ddd;
+    /* background-color: #ddd; */
     color: black;
   }
   
   /* Add a color to the active/current link */
   .navbar a.active {
-    background-color: #04AA6D;
+    /* background-color: #04AA6D; */
     color: white;
   }
   .navtab{
@@ -37,3 +41,34 @@ padding-right: 4rem;
     display: flex;
     /* padding-right: 2rem; */
   }
+ .flair-logo {
+  display: inline-flex;
+  gap: 0.05em;
+  font-size: 2rem;
+  font-family: monospace;
+  color: #00ffcc;
+  user-select: none;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.letter {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 3px #0ff) drop-shadow(0 0 5px #0ff);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.flair-icon {
+  opacity: 0;
+  transform: scale(0.5);
+  animation: fadeIn 0.3s forwards ease;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+

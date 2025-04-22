@@ -10,6 +10,7 @@ import Sublesson from "./pages/Sublesson";
 
 import Quiz from "./pages/Quiz";
 import Question from "./pages/Question";
+import Score from "./pages/Scoreboard";
 // import GradientTopography from "./lessons/SVG/GradientTopography";
 
 const App: React.FC = () => {
@@ -20,12 +21,12 @@ const App: React.FC = () => {
       <Router>
         <div>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Course />} />
             <Route path="/about" element={<About />} />
             <Route path="/course" element={<Course />} />
             <Route path="/lesson/:id" element={<Lesson />} />
             <Route path="/sublesson/:id" element={<Sublesson />} />
-
+            <Route path="/scoreboard" element={<Score />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/question/:setId" element={<Question />} />
           </Routes>

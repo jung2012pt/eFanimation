@@ -40,17 +40,17 @@
   
   .card-small {
     width: 17.5vw;
-    height: 17vh;
+    height: 16vh;
   }
   
   .card-medium {
     width: 25vw;
-    height: 17vh;
+    height: 16vh;
   }
   
   .card-large {
     width: 40vw;
-    height: 17vh;
+    height: 16vh;
   }
   
   .card:hover::before {

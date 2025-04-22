@@ -15,12 +15,12 @@ const Quiz: React.FC = () => {
   };
   // Fetch questionSets from backend APIF
   useEffect(() => {
-    const fetchCourses = async () => {
+    const fetchQuestionSets = async () => {
       try {
         const response = await axios.get(`${API_URL}/question-sets`);
         // Add a random sizeCard to each course before setting state
-        const updatedCourses = response.data.map((course: any) => ({
-          ...course,
+        const updatedCourses = response.data.map((questionSets: any) => ({
+          ...questionSets,
           sizeCard: randomSizeCard(), // Add the random sizeCard
         }));
         setQuestionSets(updatedCourses); // Store the fetched and updated data in state
@@ -34,7 +34,7 @@ const Quiz: React.FC = () => {
     if (existingLink) {
       existingLink.remove();
     }
-    fetchCourses();
+    fetchQuestionSets();
   }, []);
 
   return (
@@ -54,7 +54,7 @@ const Quiz: React.FC = () => {
                 key={course._id}
                 description={course.description}
                 title={course.name}
-                lessonAmount={course.lessonAmount}
+                // lessonAmount={course.lessonAmount}
                 id={course._id}
                 size={course.sizeCard}
               />

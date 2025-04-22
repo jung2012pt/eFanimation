@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 interface CardProps {
   title: string;
   description: string;
-  lessonAmount: number;
+  // lessonAmount: number;
   id: string;
   size?: "small" | "medium" | "large"; // Added size prop with default values
 }
@@ -13,7 +13,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({
   title,
   description,
-  lessonAmount,
+  // lessonAmount,
   id,
   size = "medium",
 }) => {
@@ -54,7 +54,7 @@ const Card: React.FC<CardProps> = ({
       <div className="content">
         <h1 className="title">{title}</h1>
         <p className="description">{description}</p>
-        <p className="lessonAmount">lessonAmount {lessonAmount}</p>
+        {/* <p className="lessonAmount">lessonAmount {lessonAmount}</p> */}
         <div className="tags">
           {/* <span className="tag">Frontend</span>
                     <span className="tag">64 modules</span>
