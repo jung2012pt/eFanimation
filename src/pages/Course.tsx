@@ -54,7 +54,7 @@ const Course: React.FC = () => {
                 key={course._id}
                 description={course.description}
                 title={course.name}
-                lessonAmount={course.lessonAmount}
+                // lessonAmount={course.lessonAmount}
                 id={course._id}
                 size={course.sizeCard}
               />
