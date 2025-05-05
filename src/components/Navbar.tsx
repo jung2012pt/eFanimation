@@ -18,9 +18,9 @@ const Navbar: React.FC = () => {
         <div className="navtab">
           <a href="/quiz">Quiz</a>
         </div>
-        <div>
+        {/* <div>
           <a href="/scoreboard">Score board</a>
-        </div>
+        </div> */}
       </div>
     </div>
   );

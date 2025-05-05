@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import "./Course.css";
 import axios from "axios";
 import "../../public/cssquestion.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -20,6 +20,7 @@ const Question: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [studentId, setStudentId] = useState<string>("");
   const [start, setStart] = useState<boolean>(true);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchQuestion = async () => {
       try {
@@ -35,6 +36,13 @@ const Question: React.FC = () => {
     fetchQuestion();
   }, [setId]);
 
+  const checkAnswer = () => {
+    if (Object.entries(answers).length == questions.length) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   const handleNext = () => {
     if (currentIndex < questions.length - 1) {
       setCurrentIndex((prev) => prev + 1);
@@ -74,18 +82,27 @@ const Question: React.FC = () => {
           if (response.status == 201) {
             if (response.data.status == "success") {
               Swal.fire({
-                title: "your answer is saved!",
-                // text: "Your file has been deleted.",
+                title:
+                  "your score is " +
+                  response.data.score +
+                  "/" +
+                  response.data.total,
+                // text: response.data.score+"/"+response.data.total,
                 icon: "success",
+                confirmButtonText: "go back to home page",
+              }).then(async (result) => {
+                if (result.isConfirmed) {
+                  navigate("/");
+                }
+                console.log("success");
               });
-              console.log("success");
+            } else {
+              Swal.fire({
+                title: "fail to saved!",
+                // text: "Your file has been deleted.",
+                icon: "error",
+              });
             }
-          } else {
-            Swal.fire({
-              title: "fail to saved!",
-              // text: "Your file has been deleted.",
-              icon: "error",
-            });
           }
         }
       });
@@ -155,7 +172,16 @@ const Question: React.FC = () => {
               <div>
                 <button
                   onClick={() => {
-                    setStart(false);
+                    if (name != "" && studentId != "" && studentId.length==10) {
+                      setStart(false);
+                    }
+                    if (name == "") {
+                      Swal.fire("please enter name");
+                    } else if (studentId == "") {
+                      Swal.fire("please enter studentId");
+                    } else if (studentId.length != 10) {
+                      Swal.fire("please enter studentId(10 digit)");
+                    }
                   }}
                 >
                   start
@@ -308,7 +334,7 @@ const Question: React.FC = () => {
                   Next
                 </button>
                 {/* </div> */}
-                {currentIndex == questions.length - 1 ? (
+                {currentIndex == questions.length - 1 && checkAnswer() ? (
                   <div className="submit-button">
                     <button onClick={onSummit}>Submit</button>
                   </div>

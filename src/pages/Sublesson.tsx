@@ -9,6 +9,10 @@ import Smooth from "../lessons/CSS/Smooth-animation";
 import Animejs from "../lessons/SVG/anime.js";
 import GsapSVG from "../lessons/SVG/gsapSVG.js";
 import Compare from "../lessons/SVG/compareing.js";
+import Fake3D from "../lessons/3D/Fake3D.js";
+import Threejs from "../lessons/3D/threejs.js";
+import Simple from "../lessons/fontanimation/simpleAnimation.js";
+import GSAPjavascript from "../lessons/javascripts/gsapjavascript.js";
 const API_URL = import.meta.env.VITE_API_URL;
 const Sublesson: React.FC = () => {
   const { id } = useParams(); // Get ID from URL
@@ -64,6 +68,23 @@ if ("gsapSVG" == sublessons[0].reactComponent) {
       console.log("compare");
       return <Compare></Compare>;
     }
+    if ("Fake3D" == sublessons[0].reactComponent) {
+      console.log("gsapSVG");
+      return <Fake3D></Fake3D>;
+    }
+    if ("threejs" == sublessons[0].reactComponent) {
+      console.log("gsapSVG");
+      return <Threejs></Threejs>;
+    }
+    if ("simple" == sublessons[0].reactComponent) {
+      console.log("gsapSVG");
+      return <Simple></Simple>;
+    }
+    if ("gsap" == sublessons[0].reactComponent) {
+      console.log("gsapSVG");
+      return <GSAPjavascript></GSAPjavascript>;
+    }
+    
     return <div>hello</div>;
   }
   useEffect(() => {

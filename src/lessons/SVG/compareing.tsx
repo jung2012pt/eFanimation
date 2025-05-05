@@ -1,28 +1,20 @@
 import React from "react";
 import "../../components/codeBox.css";
 import "../sublessondefault.css";
+
 const Compare: React.FC = () => {
   return (
     <div>
-      <h1 className="topic">Anime.js SVG</h1>
+      <h1 className="topic">GSAP vs Anime.js in SVG Blob Animation</h1>
       <p className="content">
-        A collection of utility functions to help with SVG morphing, line
-        drawing and motion path animations. All SVG utilities functions are
-        available on the svg object.
+        In this lesson, we compare two powerful JavaScript animation libraries—
+        <strong>GSAP</strong> and <strong>Anime.js</strong>—through the lens of
+        a practical use case: animating SVG blobs triggered by interactive menu
+        clicks. While both libraries achieve similar visual outcomes, their
+        syntax, control mechanisms, and flexibility differ significantly.
       </p>
-      <h1 className="header">morphTo()</h1>
-      <p className="content">
-        Creates a morphing animation from one SVG shape to another by passing
-        the morphTo() function to the d property of a SVGPathElement or to the
-        points property of a SVGPolylineElement or a SVGPolygonElement. An
-        optional precision parameter can be set to configure the amount of
-        points generated to morph the two shapes. If the precision parameter is
-        set 0, now points extrapolation is generated. svg.morphTo(shapeTarget,
-        precision); Parameters Name Accepts shapeTarget CSS selector |
-        SVGPathElement | SVGPolylineElement | SVGPolygonElement precision=.33
-        (opt) A Number between 0 and 1 Returns An Array containing the shape's
-        starting and final String values
-      </p>
+      <h1 className="header">Project Overview</h1>
+      <h1 className="header">GSAP</h1>
       <iframe
         style={{
           width: "50%",
@@ -31,122 +23,114 @@ const Compare: React.FC = () => {
           overflow: "hidden",
         }}
         title="Smooth as Butter Working Example_OutSystems Experts"
-        src="https://stackblitz.com/edit/stackblitz-starters-6r5aoijx?embed=1&file=index.html&hideExplorer=1"
+        src="https://stackblitz.com/edit/stackblitz-starters-6r5aoijx?embed=1&file=index.html"
         loading="lazy"
         allowFullScreen
       ></iframe>
-      <pre>
-        <code>
-          {`import { animate, svg, utils } from 'animejs';
-
-const [ $path1, $path2 ] = utils.$('polygon');
-
-function animateRandomPoints() {
-  // Update the points attribute on #path-2
-  utils.set($path2, { points: generatePoints() });
-  // Morph the points of #path-1 into #path-2
-  animate($path1, {
-    points: svg.morphTo($path2),
-    ease: 'inOutCirc',
-    duration: 500,
-    onComplete: animateRandomPoints
-  });
-}
-
-// Start the animation
-animateRandomPoints();
-
-// A function to generate random points on #path-2 on each iteration
-// For demo purpose only
-function generatePoints() {
-  const total = utils.random(4, 64);
-  const r1 = utils.random(4, 56);
-  const r2 = 56;
-  const isOdd = n => n % 2;
-  let points = '';
-  for (let i = 0, l = isOdd(total) ? total + 1 : total; i < l; i++) {
-    const r = isOdd(i) ? r1 : r2;
-    const a = (2 * Math.PI * i / l) - Math.PI / 2;
-    const x = 152 + utils.round(r * Math.cos(a), 0);
-    const y = 56 + utils.round(r * Math.sin(a), 0);
-    points += \`\${x},\${y} \`; 
-  }
-  return points;
-}`}
-        </code>
-      </pre>
-
-      <h1 className="header">createDrawable()</h1>
-      <p className="content">
-        Creates a Proxy of an SVGElement exposing an extra draw property that
-        defines how much of the line is visible / drawn. const [ drawable ] =
-        svg.createDrawable(target); Parameters Name Accepts target CSS selector
-        | SVGLineElement | SVGPathElement | SVGPolylineElement |
-        SVGPolylineElement | SVGRectElement Returns An Array of Proxy SVGElement
-        The added draw property accepts a String containing a start and end
-        values separated by an empty space to define how much of the line is
-        drawn.
-      </p>
-
-      <pre>
-        <code>
-          {`import { animate, svg, stagger } from 'animejs';
-
-animate(svg.createDrawable('.line'), {
-  draw: ['0 0', '0 1', '1 1'],
-  ease: 'inOutQuad',
-  duration: 2000,
-  delay: stagger(100),
-  loop: true
-});`}
-        </code>
-      </pre>
-      <h1 className="header">createMotionPath()</h1>
-      <div
+      <h1 className="header">Anime.js</h1>
+      <iframe
         style={{
-          whiteSpace: "pre-wrap",
-          fontFamily: "monospace",
+          width: "50%",
+          height: "50vh",
+          border: "none",
+          overflow: "hidden",
         }}
-        className="content"
-      >
-        {`Creates pre-defined Tween parameter objects that animate along an SVGPathElement's coordinates and inclination.
-const { translateX, translateY, rotate } = svg.createMotionPath(path);
-
-Parameters
-Name   Type
-path   CSS selector | SVGPathElement
-
-Returns an Object with the following properties:
-Name        Type             Description
-translateX  Tween parameter  Map to the x coordinate of the path element
-translateY  Tween parameter  Map to the y coordinate of the path element
-rotate      Tween parameter  Map to the angle of the path element`}
-      </div>
-
+        title="Smooth as Butter Working Example_OutSystems Experts"
+        src="https://stackblitz.com/edit/stackblitz-starters-umpayg5z?embed=1&file=index.html"
+        loading="lazy"
+        allowFullScreen
+      ></iframe>
+      <p className="content">
+        The UI consists of several layered SVG blobs. When a menu item is
+        selected, the corresponding blob expands and morphs into a new shape
+        while others fade. Clicking a close button collapses the blob and
+        restores the original menu.
+      </p>
+      <h1 className="header">Syntax Comparison</h1>
+      <p className="content">
+        <strong>Anime.js</strong> uses a configuration-object approach for
+        defining animations:
+      </p>
       <pre>
-        <code>
-          {`import { animate, svg } from 'animejs';
-
-// Animate the transforms properties of .car the motion path values
-const carAnimation = animate('.car', {
-  ease: 'linear',
-  duration: 5000,
-  loop: true,
-  ...svg.createMotionPath('path')
-});
-
-// Line drawing animation following the motion path values
-// For demo aesthetic only
-animate(svg.createDrawable('path'), {
-  draw: '0 1',
-  ease: 'linear',
-  duration: 5000,
-  loop: true
-});`}
-        </code>
+        <code>{`anime({
+  targets: this.layers,
+  scale: [0.2, 1],
+  opacity: {
+    value: [0, 1],
+    duration: 300,
+    easing: "linear"
+  },
+  easing: [0.2, 1, 0.1, 1],
+  delay: (t, i) => i * 120,
+  duration: 1800
+});`}</code>
       </pre>
+      <p className="content">
+        <strong>GSAP</strong> offers a method-chaining approach that promotes
+        better sequencing and modular control:
+      </p>
+      <pre>
+        <code>{`gsap.set(this.layers, { scale: 0.2, opacity: 0 });
+gsap.to(this.layers, {
+  duration: 1.8,
+  scale: 1,
+  opacity: 1,
+  stagger: 0.12,
+  ease: "power2.out"
+});`}</code>
+      </pre>
+      <h1 className="header">SVG Morphing</h1>
+      <p className="content">
+        Both libraries animate the SVG <code>d</code> attribute for path
+        morphing. While Anime.js uses direct attribute access, GSAP wraps it in
+        an <code>attr</code> object, offering clearer syntax when combined with
+        other features.
+      </p>
+      <h1 className="header">Animation Control</h1>
+      <p className="content">
+        GSAP provides structured lifecycle callbacks such as{" "}
+        <code>onStart</code>, <code>onUpdate</code>, and <code>onComplete</code>
+        . This improves maintainability in complex timelines.
+      </p>
+      <p className="content">For example, to track animation progress:</p>
+      <pre>
+        <code>{`// Anime.js
+if (anim.progress > 75) resolve();
+
+// GSAP
+if (this.progress() * 100 > 75) resolve();`}</code>
+      </pre>
+      <h1 className="header">Staggering Animations</h1>
+      <p className="content">
+        Anime.js requires manual delay functions for staggering effects. In
+        contrast, GSAP supports native <code>stagger</code> and{" "}
+        <code>gsap.utils.random()</code>, simplifying timing and flow.
+      </p>
+      <h1 className="header">Ecosystem and Performance</h1>
+      <p className="content">
+        GSAP's plugin ecosystem (e.g., ScrollTrigger, Flip, Draggable) and dev
+        tools make it more suitable for large-scale, performance-critical
+        applications. Anime.js is smaller in size and ideal for simple
+        animations.
+      </p>
+      <ul className="content">
+        <li>
+          GSAP: ~50 KB, timeline & plugin support, production-grade tools.
+        </li>
+        <li>Anime.js: ~15 KB, minimal setup, fewer features.</li>
+      </ul>
+      <h1 className="header">Conclusion</h1>
+      <p className="content">
+        Anime.js is a great choice for quick, lightweight animations. GSAP,
+        however, is more scalable and maintainable for complex, layered
+        animations like blob morphing UIs. If your project requires advanced
+        control, timeline orchestration, or extensibility, GSAP is the superior
+        tool.
+      </p>
     </div>
   );
 };
+
+
 
 export default Compare;
