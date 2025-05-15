@@ -172,7 +172,11 @@ const Question: React.FC = () => {
               <div>
                 <button
                   onClick={() => {
-                    if (name != "" && studentId != "" && studentId.length==10) {
+                    if (
+                      name != "" &&
+                      studentId != "" &&
+                      studentId.length == 10
+                    ) {
                       setStart(false);
                     }
                     if (name == "") {
@@ -205,6 +209,35 @@ const Question: React.FC = () => {
                   <div className="question-text">
                     {questions[currentIndex]?.question_text}
                   </div>
+                  {setId == "68193b7f07b9843127284d52" ? (
+                    <div>
+                      {" "}
+                      <iframe
+                        // height="300"
+                        style={{
+                          width: "50%",
+                          height: "50vh",
+                          border: "none",
+                          overflow: "hidden",
+                          marginRight:"43%"
+                        }}
+                        title="Smooth as Butter Working Example_OutSystems Experts"
+                        src="https://codepen.io/jung2012pt/embed/LEEmEep?default-tab=html%2Cresult"
+                        loading="lazy"
+                        allowFullScreen
+                      >
+                        See the Pen{" "}
+                        <a href="https://codepen.io/jung2012pt/pen/GgRzOQe">
+                          Smooth as Butter Working Example_OutSystems Experts
+                        </a>{" "}
+                        by jung2012pt (
+                        <a href="https://codepen.io/jung2012pt">@jung2012pt</a>)
+                        on <a href="https://codepen.io">CodePen</a>.
+                      </iframe>
+                    </div>
+                  ) : (
+                    <div></div>
+                  )}
                   <div className="choice">
                     {questions[currentIndex].choices?.map(
                       (choice: any, index: number) => (
